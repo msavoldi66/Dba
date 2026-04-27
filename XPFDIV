@@ -1,0 +1,31 @@
+SELECT                                                                          
+IBMSNAP_OPERATION,                                                              
+PFDIV_ABI,                                                                      
+PFDIV_CAB,                                                                      
+PFDIV_CIN,                                                                      
+PFDIV_CINIBAN,                                                                  
+PFDIV_CODCONF,                                                                  
+PFDIV_CODPROD,                                                                  
+PFDIV_NAZIOIBAN,                                                                
+PFDIV_NUMCC,                                                                    
+PFDIV_SUBPROD,                                                                  
+PFDIV_TIPODISTR                                                                 
+FROM FJSS.JPFDIV_VIEW2                                                          
+WHERE IBMSNAP_LOGMARKER<CURRENT TIMESTAMP - 2 DAYS                              
+AND   IBMSNAP_LOGMARKER>CURRENT TIMESTAMP - 5 DAYS                              
+MINUS                                                                           
+SELECT                                                                          
+IBMSNAP_OPERATION,                                                              
+PFDIV_ABI,                                                                      
+PFDIV_CAB,                                                                      
+PFDIV_CIN,                                                                      
+PFDIV_CINIBAN,                                                                  
+PFDIV_CODCONF,                                                                  
+PFDIV_CODPROD,                                                                  
+PFDIV_NAZIOIBAN,                                                                
+PFDIV_NUMCC,                                                                    
+PFDIV_SUBPROD,                                                                  
+PFDIV_TIPODISTR                                                                 
+FROM FJSS.JPFDIV                                                                
+WHERE IBMSNAP_LOGMARKER<CURRENT TIMESTAMP - 2 DAYS                              
+AND   IBMSNAP_LOGMARKER>CURRENT TIMESTAMP - 5 DAYS;COMMIT;                      
