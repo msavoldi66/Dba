@@ -1,0 +1,576 @@
+1                    J E S 2  J O B  L O G  --  S Y S T E M  A M V S  --  N O D E  N C R M I 0 A
+0
+ 22.49.31 J0019404 ---- SUNDAY,    05 JUL 2026 ----
+ 22.49.31 J0019404  IRR010I  USERID GAY6DB2  IS ASSIGNED TO THIS JOB.
+ 22.49.31 J0019404  ICH70001I GAY6DB2  LAST ACCESS AT 22:49:31 ON SUNDAY, JULY 5, 2026
+ 22.49.31 J0019404  $HASP373 $B2RMS4X STARTED - INIT G1   - CLASS Y        - SYS AMVS
+ 22.49.31 J0019404  IEF403I $B2RMS4X - STARTED
+ 22.49.33 J0019404  --JOB--  --STEP-- -STARTED - ENDED- ---TCB--- ---SRB--- -RC-  -ELAPSED-
+ 22.49.33 J0019404  $B2RMS4X STEP1    22:49:31 22:49:33       .02       .00 S008       2.22
+ 22.49.33 J0019404  IEF450I $B2RMS4X P0 PDUD - ABEND=S000 U0333 REASON=00000000
+ 22.49.33 J0019404  $B2RMS4X P0       22:49:33 22:49:33       .01       .00 U0333       .20
+ 22.49.33 J0019404  IEF404I $B2RMS4X - ENDED
+ 22.49.33 J0019404  $HASP395 $B2RMS4X ENDED - ABEND=U0333
+0------ JES2 JOB STATISTICS ------
+-  05 JUL 2026 JOB EXECUTION DATE
+-           95 CARDS READ
+-          584 SYSOUT PRINT RECORDS
+-            0 SYSOUT PUNCH RECORDS
+-           47 SYSOUT SPOOL KBYTES
+-         0.04 MINUTES EXECUTION TIME
+        1 //$B2RMS4X JOB $CAR0MVS000000,'ST',MSGCLASS=Y,                          J0019404
+          //          CLASS=Y,SCHENV=GGAMVS,
+          //          REGION=0M TYPRUN=HOLD
+          //*
+          //*  JOB sottomesso dal tracker: GCGD7T4#
+          //*
+          //*  LANCIATO tramite DB20JOBS da: $B2RMX8X J0019390 AMVS
+          //*
+          //* JOB DI ESECUZIONE
+          //* SE ABEND, RILANCIARE DA CAPO
+          //*
+          //*
+          //*
+          //***************************************************
+          //*  CREATED BY :  GAY6DB2
+          //*  TIMESTAMP  :  07/05/2026.22.49.26
+          //*  ENVIRONMENT:  ISPF 8.1MVS     BATCH
+          //*  RELEASE    :  V13.01.00 05/31/2022
+          //*  DB2 VERSION:  13010
+          //***************************************************
+        2 //STEP1 EXEC PGM=AEXEMAIN,
+          //     REGION=0M,MEMLIMIT=NOLIMIT,PARM='DB2ROPD1',
+          //     COND=(4,LT)
+        3 //STEPLIB DD  DSN=YC00BMC.PE000.CHGMAN.UBMCLINK,DISP=SHR
+        4 //        DD  DSN=YC00BMC.PE000.CHGMAN.BMCLINK,DISP=SHR
+        5 //        DD  DSN=LCP00.SYSTEM.PRM.DB2,DISP=SHR
+        6 //        DD  DSN=YC00DB2.PE000.DB2R.DSNEXIT,DISP=SHR
+        7 //        DD  DSN=YC00DB2.PE000.DB2R.DSNLOAD,DISP=SHR
+        8 //        DD  DSN=YC00DB2.PE000.SORT.SCNKLINK,DISP=SHR
+        9 //        DD  DSN=YC00DB2.PE000.SORT.SCNKLPA,DISP=SHR
+          //**   ADDED FROM AJXSTEPM
+       10 //        DD DSN=YC00BMC.PE000.CHGMAN.UBMCLINK,DISP=SHR
+       11 //        DD DSN=YC00BMC.PE000.CHGMAN.BMCLINK,DISP=SHR
+       12 //ABNLIGNR DD DUMMY
+       13 //SYSUDUMP DD SYSOUT=*
+          //********************************************************
+          //****  SAMPLE SYSMDUMP JCL ********
+          //**** PLEASE REPLACE THE DSN AND UNIT WITH ONES THAT FITS
+          //**** YOUR SHOP STANDARDS AND UNCOMMENT THE JCL
+          //*SYSMDUMP DD DSN=CUSTOMER.SYSMDUMP,DISP=(,CATLG,CATLG),UNIT=XXXXXXX,
+          //*  SPACE=(CYL,(200,50),RLSE),
+          //*  DCB=(DSORG=PS,RECFM=FBS,LRECL=4160,BLKSIZE=24960)
+          //********************************************************
+          IEFC025I INSTALLATION MODIFIED JCL - //SYSUDUMP DD SYSOUT=L
+       14 //SYSTERM  DD SYSOUT=*
+       15 //ASUSRPRT DD SYSOUT=*
+       16 //STPRIN01 DD SYSOUT=*
+       17 //UTPRINT  DD SYSOUT=*
+       18 //RNPRIN01  DD SYSOUT=*
+       19 //DDLOUT   DD SYSOUT=*
+       20 //SYSOUT   DD SYSOUT=*
+       21 //AJXERR   DD SYSOUT=*
+       22 //AEXIN    DD *
+       23 //SYSIN    DD SPACE=(CYL,(15,15)),UNIT=SYSALLDA,DISP=(NEW,DELETE),
+          //            DSORG=PS,LRECL=80,BLKSIZE=3200,RECFM=FB
+       24 //SYSTSIN  DD SPACE=(TRK,(1,1)),UNIT=SYSALLDA,DISP=(NEW,DELETE),
+          //            DSORG=PS,LRECL=80,BLKSIZE=3200,RECFM=FB
+       25 //SYSPRINT DD SPACE=(CYL,(15,15)),UNIT=SYSALLDA,
+          //            DISP=(NEW,DELETE)
+       26 //SYSTSPRT DD SPACE=(CYL,(5,5)),UNIT=SYSALLDA,DISP=(NEW,DELETE),
+          //            DSORG=PS,LRECL=137,BLKSIZE=4096,RECFM=VBA
+       27 //ALUIN    DD SPACE=(TRK,(1,1)),UNIT=SYSALLDA,DISP=(NEW,DELETE),
+          //            DSORG=PS,LRECL=80,BLKSIZE=3200,RECFM=FB
+       28 //ALUPRINT DD SPACE=(CYL,(5,5)),UNIT=SYSALLDA,DISP=(NEW,DELETE)
+       29 //AJXPRINT DD SPACE=(CYL,(5,5)),UNIT=SYSALLDA,DISP=(NEW,DELETE)
+          //*** RUNTIME ENABLEMENT CHOSEN - MULTIPLE LLQS
+       30 //SYSPROC  DD DSN=YC00BMC.PE000.CHGMAN.UBMCCLIB,DISP=SHR
+       31 //         DD DSN=YC00BMC.PE000.CHGMAN.BMCCLIB,DISP=SHR
+       32 //ACT$MSGS DD DSN=YC00BMC.PE000.CHGMAN.UBMCMLIB,DISP=SHR
+       33 //         DD DSN=YC00BMC.PE000.CHGMAN.BMCMLIB,DISP=SHR
+       34 //ISPMLIB  DD DSN=YC00BMC.PE000.CHGMAN.UBMCMLIB,DISP=SHR
+       35 //         DD DSN=YC00BMC.PE000.CHGMAN.BMCMLIB,DISP=SHR
+       36 //ISPSLIB  DD DSN=YC00BMC.PE000.CHGMAN.UBMCSLIB,DISP=SHR
+       37 //         DD DSN=YC00BMC.PE000.CHGMAN.BMCSLIB,DISP=SHR
+       38 //ISPTLIB  DD DSN=YC00BMC.PE000.CHGMAN.UBMCTLIB,DISP=SHR
+       39 //         DD DSN=YC00BMC.PE000.CHGMAN.BMCTLIB,DISP=SHR
+       40 //ISPPLIB  DD DSN=YC00BMC.PE000.CHGMAN.UBMCPLIB,DISP=SHR
+       41 //         DD DSN=YC00BMC.PE000.CHGMAN.BMCPLIB,DISP=SHR
+       42 //AEXPRINT DD SYSOUT=*
+       43 //WORKLIST DD DISP=SHR,
+          //   DSN=XC00DB2.TW000.UDBR000Y.DBR000.DB2R.WKL
+          //*-----------------------------------------
+       44 //PDUD EXEC DB20DUD,
+          //    DESC='DB2: ANOMALIA STEP',
+          //    RTC='04',
+          //    OPE='<',
+          //    STEP='',
+          //    MAIL='NO',
+          //    CEN=&CEN,
+          //    MAILB=MDB2
+          XX*****************************************************************     00171004
+          XX* IN CASO DI ANOMALIA AD UNO STEP PRECEDENTE GESTISCE L'INVIO DI      00171104
+          XX* UNA EVENTUALE MAIL E/O PERMETTE DI CAUSARE L'ABEND DEL JOB PER      00171104
+          XX* BLOCCARNE L'ESECUZIONE.                                             00171104
+          XX* VIENE USATA NELLE PROCEDURE DB20* SU TARGET E SU AMVS.              00171104
+          XX*                                                                     00171104
+          XX* SI COMPONE DI UN SOLO STEP CHE ESEGUE IL PGM ASSEMBLER Y200650      00171104
+          XX* CHE RICHIAMA IL PROGRAMMA REXX Y6DUD PASSANDO TUTTI I PARAMETRI     00171104
+          XX*                                                                     00171104
+          XX* IL DOPPIO PASSAGGIO (PROGRAMMA ASSEMBLER + PROGRAMMA REXX) }        00171104
+          XX* L'UNICO MODO PER POTER CAUSARE DIRETTAMENTE L'ABEND DELLO STEP      00171104
+          XX* NEL CASO VENGA RICHIESTO.                                           00171104
+          XX*                                                                     00171104
+          XX* INPUT:                                                              00171104
+          XX*  FILEIN= CONTIENE L'EVENTUALE TESTO DELLA MAIL CHE SI PUO'          00171104
+          XX*          QUINDI PASSARE IN OVERRIDE (DEFAULT DUMMY)                 00171104
+          XX*                                                                     00171104
+          XX* PARAMETRI:                                                          00171321
+          XX*   DESC = DESCRIZIONE DELL'ABEND CHE VERRA' RIPORTATA NELLA MAIL     00171321
+          XX*   DESC2= DESCRIZIONE AGGIUNTIVA                                     00171321
+          XX*   STEP = STEP DA CONTROLLARE (DEFAULT OGNI STEP PRECEDENTE)         00171321
+          XX*   OPE  = OPERATORE UTILIZZATO PER IL TEST (ES. = > < >=)            00171321
+          XX*   RTC  = RETURN CODE DA CONTROLLARE (IF RTC OPE STEP THEN .DUMP)    00171321
+          XX*   MAIL =  NO  -> SOLO ABEND DEL JOB (DEFAULT)                       00171321
+          XX*           YES -> SOLO MAIL SENZA ABEND DEL JOB                      00171321
+          XX*           ALL -> MAIL E ABEND DEL JOB                               00171321
+          XX*   MAILB= MEMBRO DI INPUT CONTENENTE GLI INDIRIZZI                   00171321
+          XX*   DB2  = OPZIONALE, SE SPECIFICATO AGGIORNA IL TIMESTAMP DI FINE    00171321
+          XX*           SULLA TABELLA AYY2.LOG_UTILITY PER IL JOB CORRENTE        00171321
+          XX*           UTILIZZATO PRINCIPALMENTE PER LA PROCEDURA DB20LOAD       00171321
+          XX*   ULTIMO= Y -> CONSIDERA SOLO L'ULTIMO STEP                         00171321
+          XX*           N -> CONSIDERA TUTTI GLI STEP PRECEDENTI (DEFAULT)        00171321
+          XX*                                                                     00171321
+          XX* 21.04.23: DOCUMENTAZIONE SPOSTATA NEL JCL                           00171321
+          XX*                                                                     00171321
+          XX*****************************************************************     00174004
+          IEFC653I SUBSTITUTION JCL - DB20DUD,DESC='DB2: ANOMALIA STEP',RTC='04',OPE='<',STEP='',MAIL='NO',CEN=C,
+          MAILB=MDB2
+       45 XXDB20DUD PROC DESC='JOBS DI MANUTENZIONE DB2',CEN=,
+          XX       DESC2='',
+          XX       AMBL='P',
+          XX       RTC='00',
+          XX       OPE='=',
+          XX       STEP='',
+          XX       DB2='',
+          XX       CHIAVE='',
+          XX       MAIL='NO',
+          XX       ULTIMO='NO',
+          XX       MAILB=MDB1
+          XX* EXPORT DEI SIMBOLI DA UTILIZZARE NEGLI INPUT IN STREAM
+       46 XXP000EXP  EXPORT SYMLIST=(RTC,STEP,MAIL,DB2,
+          XX         CHIAVE,ULTIMO)
+       47 XXP000SET  SET RTC=&RTC,STEP=&STEP,MAIL=&MAIL,DB2=&DB2,
+          XX         CHIAVE=&CHIAVE,ULTIMO=&ULTIMO
+          IEFC653I SUBSTITUTION JCL - RTC=04,STEP=,MAIL=NO,DB2=,CHIAVE=,ULTIMO=NO
+       48 XXRTC      EXPORT EXPSET=04                          GENERATED STATEMENT
+       49 XXSTEP     EXPORT EXPSET=                            GENERATED STATEMENT
+       50 XXMAIL     EXPORT EXPSET=NO                          GENERATED STATEMENT
+       51 XXDB2      EXPORT EXPSET=                            GENERATED STATEMENT
+       52 XXCHIAVE   EXPORT EXPSET=                            GENERATED STATEMENT
+       53 XXULTIMO   EXPORT EXPSET=NO                          GENERATED STATEMENT
+       54 XXP0       EXEC PGM=Y200650,
+          XX PARM=('Y6DUD OPER(&OPE) DESC1(&DESC)',
+          XX   'DESC2(&DESC2)')
+          IEFC653I SUBSTITUTION JCL - PGM=Y200650,PARM=('Y6DUD OPER(<) DESC1(DB2: ANOMALIA STEP)','DESC2()')
+       55 XXSTEPLIB  DD DSN=L&CEN.&AMBL.0Y.TBAN0000.LOADBATC,DISP=SHR             00001600
+          IEFC653I SUBSTITUTION JCL - DSN=LCP0Y.TBAN0000.LOADBATC,DISP=SHR
+       56 XX         DD DSN=Y&CENN.00DB2.PE000.DSNLOAD,DISP=SHR                   00001600
+          IEFC653I SUBSTITUTION JCL - DSN=YC00DB2.PE000.DSNLOAD,DISP=SHR
+       57 XXSYSEXEC  DD DSN=L&CEN.&AMBL.00.SYSTEM.INPUT,DISP=SHR                  00001600
+          IEFC653I SUBSTITUTION JCL - DSN=LCP00.SYSTEM.INPUT,DISP=SHR
+       58 XXPARMDD   DD *,SYMBOLS=JCLONLY
+       59 XXELENCO   DD DISP=SHR,DSN=L&CEN.&AMBL.00.SYSTEM.INPUT(&MAILB)
+          IEFC653I SUBSTITUTION JCL - DISP=SHR,DSN=LCP00.SYSTEM.INPUT(MDB2)
+       60 XXFILEIN   DD DUMMY
+       61 XXSYSTSPRT DD SYSOUT=*
+       62 XXMAILJOB  DD SYSOUT=(K,INTRDR),LRECL=132,RECFM=FB,DSORG=PS
+       63 XXSYSTSIN  DD DUMMY
+       64 XXSYSPRINT DD SYSOUT=*,DCB=(LRECL=121,RECFM=FBA,BLKSIZE=121)
+       65 XXSYSIN    DD DUMMY
+       66 XXRTC      EXPORT EXPSET=                            GENERATED STATEMENT
+       67 XXSTEP     EXPORT EXPSET=                            GENERATED STATEMENT
+       68 XXMAIL     EXPORT EXPSET=                            GENERATED STATEMENT
+       69 XXDB2      EXPORT EXPSET=                            GENERATED STATEMENT
+       70 XXCHIAVE   EXPORT EXPSET=                            GENERATED STATEMENT
+       71 XXULTIMO   EXPORT EXPSET=                            GENERATED STATEMENT
+  STMT NO. MESSAGE
+        44 IEFC001I PROCEDURE DB20DUD WAS EXPANDED USING SYSTEM LIBRARY LCP00.SYSTEM.PROCLIB
+ ICH70001I GAY6DB2  LAST ACCESS AT 22:49:31 ON SUNDAY, JULY 5, 2026
+ IEF043I Actions taken by SMFLIMxx parmlib policy for $B2RMS4X STEP1
+         Step region above changed to NOLIMIT by policy - SMFLIM00 0001
+ IEFA111I $B2RMS4X IS USING THE FOLLOWING JOB RELATED SETTINGS:
+          SWA=ABOVE,TIOT SIZE=40K,DSENQSHR=DISALLOW,GDGBIAS=JOB
+ IEF236I ALLOC. FOR $B2RMS4X STEP1
+ IGD103I SMS ALLOCATED TO DDNAME STEPLIB
+ IGD103I SMS ALLOCATED TO DDNAME
+ IGD103I SMS ALLOCATED TO DDNAME
+ IGD103I SMS ALLOCATED TO DDNAME
+ IGD103I SMS ALLOCATED TO DDNAME
+ IGD103I SMS ALLOCATED TO DDNAME
+ IGD103I SMS ALLOCATED TO DDNAME
+ IGD103I SMS ALLOCATED TO DDNAME
+ IGD103I SMS ALLOCATED TO DDNAME
+ IEF237I DMY  ALLOCATED TO ABNLIGNR
+ IEF237I JES2 ALLOCATED TO SYSUDUMP
+ IEF237I JES2 ALLOCATED TO SYSTERM
+ IEF237I JES2 ALLOCATED TO ASUSRPRT
+ IEF237I JES2 ALLOCATED TO STPRIN01
+ IEF237I JES2 ALLOCATED TO UTPRINT
+ IEF237I JES2 ALLOCATED TO RNPRIN01
+ IEF237I JES2 ALLOCATED TO DDLOUT
+ IEF237I JES2 ALLOCATED TO SYSOUT
+ IEF237I JES2 ALLOCATED TO AJXERR
+ IEF237I JES2 ALLOCATED TO AEXIN
+ IGD101I SMS ALLOCATED TO DDNAME (SYSIN   )
+         DSN (SYS26186.T224931.RA000.$B2RMS4X.R0129565    )
+         STORCLAS (SCMUSTST) MGMTCLAS (        ) DATACLAS (DCSTOR1)
+         VOL SER NOS= CPW025
+ IGD101I SMS ALLOCATED TO DDNAME (SYSTSIN )
+         DSN (SYS26186.T224931.RA000.$B2RMS4X.R0129566    )
+         STORCLAS (SCMUSTST) MGMTCLAS (        ) DATACLAS (DCSTOR1)
+         VOL SER NOS= CPW047
+ IGD101I SMS ALLOCATED TO DDNAME (SYSPRINT)
+         DSN (SYS26186.T224931.RA000.$B2RMS4X.R0129567    )
+         STORCLAS (SCMUSTST) MGMTCLAS (        ) DATACLAS (DCSTOR1)
+         VOL SER NOS= CPW000
+ IGD101I SMS ALLOCATED TO DDNAME (SYSTSPRT)
+         DSN (SYS26186.T224931.RA000.$B2RMS4X.R0129568    )
+         STORCLAS (SCMUSTST) MGMTCLAS (        ) DATACLAS (DCSTOR1)
+         VOL SER NOS= CPW030
+ IGD101I SMS ALLOCATED TO DDNAME (ALUIN   )
+         DSN (SYS26186.T224931.RA000.$B2RMS4X.R0129569    )
+         STORCLAS (SCMUSTST) MGMTCLAS (        ) DATACLAS (DCSTOR1)
+         VOL SER NOS= CPW056
+ IGD101I SMS ALLOCATED TO DDNAME (ALUPRINT)
+         DSN (SYS26186.T224931.RA000.$B2RMS4X.R0129570    )
+         STORCLAS (SCMUSTST) MGMTCLAS (        ) DATACLAS (DCSTOR1)
+         VOL SER NOS= CPW001
+ IGD101I SMS ALLOCATED TO DDNAME (AJXPRINT)
+         DSN (SYS26186.T224931.RA000.$B2RMS4X.R0129571    )
+         STORCLAS (SCMUSTST) MGMTCLAS (        ) DATACLAS (DCSTOR1)
+         VOL SER NOS= CPW015
+ IGD103I SMS ALLOCATED TO DDNAME SYSPROC
+ IGD103I SMS ALLOCATED TO DDNAME
+ IGD103I SMS ALLOCATED TO DDNAME ACT$MSGS
+ IGD103I SMS ALLOCATED TO DDNAME
+ IGD103I SMS ALLOCATED TO DDNAME ISPMLIB
+ IGD103I SMS ALLOCATED TO DDNAME
+ IGD103I SMS ALLOCATED TO DDNAME ISPSLIB
+ IGD103I SMS ALLOCATED TO DDNAME
+ IGD103I SMS ALLOCATED TO DDNAME ISPTLIB
+ IGD103I SMS ALLOCATED TO DDNAME
+ IGD103I SMS ALLOCATED TO DDNAME ISPPLIB
+ IGD103I SMS ALLOCATED TO DDNAME
+ IEF237I JES2 ALLOCATED TO AEXPRINT
+ IGD103I SMS ALLOCATED TO DDNAME WORKLIST
+ IGD103I SMS ALLOCATED TO DDNAME SYS00001
+ IGD104I YC00BMC.PE000.CHGMAN.V131.UBMCLINK           RETAINED,  DDNAME=SYS00001
+ IEF142I $B2RMS4X STEP1 - STEP WAS EXECUTED - COND CODE 0008
+ IGD104I YC00BMC.PE000.CHGMAN.UBMCLINK                RETAINED,  DDNAME=STEPLIB
+ IGD104I YC00BMC.PE000.CHGMAN.BMCLINK                 RETAINED,  DDNAME=
+ IGD104I LCP00.SYSTEM.PRM.DB2                         RETAINED,  DDNAME=
+ IGD104I YC00DB2.PE000.DB2R.DSNEXIT                   RETAINED,  DDNAME=
+ IGD104I YC00DB2.PE000.DB2R.DSNLOAD                   RETAINED,  DDNAME=
+ IGD104I YC00DB2.PE000.SORT.SCNKLINK                  RETAINED,  DDNAME=
+ IGD104I YC00DB2.PE000.SORT.SCNKLPA                   RETAINED,  DDNAME=
+ IGD104I YC00BMC.PE000.CHGMAN.UBMCLINK                RETAINED,  DDNAME=
+ IGD104I YC00BMC.PE000.CHGMAN.BMCLINK                 RETAINED,  DDNAME=
+ IEF285I   GAY6DB2.$B2RMS4X.J0019404.D0000103.?         SYSOUT
+ IEF285I   GAY6DB2.$B2RMS4X.J0019404.D0000104.?         SYSOUT
+ IEF285I   GAY6DB2.$B2RMS4X.J0019404.D0000105.?         SYSOUT
+ IEF285I   GAY6DB2.$B2RMS4X.J0019404.D0000106.?         SYSOUT
+ IEF285I   GAY6DB2.$B2RMS4X.J0019404.D0000107.?         SYSOUT
+ IEF285I   GAY6DB2.$B2RMS4X.J0019404.D0000108.?         SYSOUT
+ IEF285I   GAY6DB2.$B2RMS4X.J0019404.D0000109.?         SYSOUT
+ IEF285I   GAY6DB2.$B2RMS4X.J0019404.D0000110.?         SYSOUT
+ IEF285I   GAY6DB2.$B2RMS4X.J0019404.D0000111.?         SYSOUT
+ IEF285I   GAY6DB2.$B2RMS4X.J0019404.D0000101.?         SYSIN
+ IGD105I SYS26186.T224931.RA000.$B2RMS4X.R0129565     DELETED,   DDNAME=SYSIN
+ IGD105I SYS26186.T224931.RA000.$B2RMS4X.R0129566     DELETED,   DDNAME=SYSTSIN
+ IGD105I SYS26186.T224931.RA000.$B2RMS4X.R0129567     DELETED,   DDNAME=SYSPRINT
+ IGD105I SYS26186.T224931.RA000.$B2RMS4X.R0129568     DELETED,   DDNAME=SYSTSPRT
+ IGD105I SYS26186.T224931.RA000.$B2RMS4X.R0129569     DELETED,   DDNAME=ALUIN
+ IGD105I SYS26186.T224931.RA000.$B2RMS4X.R0129570     DELETED,   DDNAME=ALUPRINT
+ IGD105I SYS26186.T224931.RA000.$B2RMS4X.R0129571     DELETED,   DDNAME=AJXPRINT
+ IGD104I YC00BMC.PE000.CHGMAN.UBMCCLIB                RETAINED,  DDNAME=SYSPROC
+ IGD104I YC00BMC.PE000.CHGMAN.BMCCLIB                 RETAINED,  DDNAME=
+ IGD104I YC00BMC.PE000.CHGMAN.UBMCMLIB                RETAINED,  DDNAME=ACT$MSGS
+ IGD104I YC00BMC.PE000.CHGMAN.BMCMLIB                 RETAINED,  DDNAME=
+ IGD104I YC00BMC.PE000.CHGMAN.UBMCMLIB                RETAINED,  DDNAME=ISPMLIB
+ IGD104I YC00BMC.PE000.CHGMAN.BMCMLIB                 RETAINED,  DDNAME=
+ IGD104I YC00BMC.PE000.CHGMAN.UBMCSLIB                RETAINED,  DDNAME=ISPSLIB
+ IGD104I YC00BMC.PE000.CHGMAN.BMCSLIB                 RETAINED,  DDNAME=
+ IGD104I YC00BMC.PE000.CHGMAN.UBMCTLIB                RETAINED,  DDNAME=ISPTLIB
+ IGD104I YC00BMC.PE000.CHGMAN.BMCTLIB                 RETAINED,  DDNAME=
+ IGD104I YC00BMC.PE000.CHGMAN.UBMCPLIB                RETAINED,  DDNAME=ISPPLIB
+ IGD104I YC00BMC.PE000.CHGMAN.BMCPLIB                 RETAINED,  DDNAME=
+ IEF285I   GAY6DB2.$B2RMS4X.J0019404.D0000112.?         SYSOUT
+ IGD104I XC00DB2.TW000.UDBR000Y.DBR000.DB2R.WKL       RETAINED,  DDNAME=WORKLIST
+ *** STEP STATISTICS ***********************************************************
+ * USERID: (GAY6DB2 )  STEP#(   1)  PGM(AEXEMAIN)  ENDED - RETURN CODE (S008 ) *
+ *-----------------------------------------------------------------------------*
+ * JOBNAME:       $B2RMS4X * STEPNAME:      STEP1    * PROCNAME:               *
+ * START TIME:    22:49:31 * ENDED TIME:    22:49:33 * KEY USED:          (08) *
+ * ELAPSED TIME:      2.22 * CPU TIME(TCB):      .02 * CPU TIME(SRB):      .00 *
+ * SUNITS: CPU=       1,862 SRB=          29 I/O=           0 MSO=           0 *
+ * VIRTUAL STORAGE:   REGION REQUESTED= ÄÄ10216K, PVT AREA=( 10,216K/  1,502M) *
+ * VIRTUAL USED:   MAX. FOR USER=(  1,032K/     17M) - SYS=(    316K/ 10,508K) *
+ * SWAPPING:  NUMBER=     0 AVG. PAGES/SWAPIN=     0 AVG. PAGES/SWAPOUT=     0 *
+ * PVT PAGING(I/O):    0 /    0  VIO(I/O/R):     0 /    0 /    0  STOLEN:    0 *
+ *-----------------------------------------------------------------------------*
+ * STEPLIB  272C         2 * STEPLIB  3121       478 * STEPLIB  2C3D         0 *
+ * STEPLIB  2424         2 * STEPLIB  290E       100 * STEPLIB  2F26         0 *
+ * ABNLIGNR 0000         0 * SYSUDUMP 0000         0 * SYSTERM  0000         0 *
+ * ASUSRPRT 0000         0 * STPRIN01 0000         0 * UTPRINT  0000         0 *
+ * RNPRIN01 0000         0 * DDLOUT   0000         0 * SYSOUT   0000         0 *
+ * AJXERR   0000         0 * AEXIN    0000         0 * SYSIN    2B27         0 *
+ * SYSTSIN  2D83         0 * SYSPRINT 3312         1 * SYSTSPRT 2C28         1 *
+ * ALUIN    2F4D         0 * ALUPRINT 301B         0 * AJXPRINT 3036         0 *
+ * SYSPROC  3121         0 * SYSPROC  242A         0 * ACT$MSGS 281C         0 *
+ * ACT$MSGS 2721         0 * ISPMLIB  281C         0 * ISPMLIB  2721         0 *
+ * ISPSLIB  2424         0 * ISPSLIB  2A18         0 * ISPTLIB  3121         0 *
+ * ISPTLIB  272C         0 * ISPPLIB  2721         0 * AEXPRINT 0000         0 *
+ * WORKLIST 2A28         3 * SYS00001 272C         4 *                         *
+ *******************************************************************************
+ IEF373I STEP/STEP1   /START 2026186.2249
+ IEF032I STEP/STEP1   /STOP  2026186.2249
+         CPU:     0 HR  00 MIN  00.02 SEC    SRB:     0 HR  00 MIN  00.00 SEC
+         VIRT:  1032K  SYS:   316K  EXT:    18324K  SYS:    10508K
+         ATB- REAL:                   276K  SLOTS:                     0K
+              VIRT- ALLOC:      21M SHRD:       0M
+ IEF043I Actions taken by SMFLIMxx parmlib policy for $B2RMS4X P0
+         Step region above changed to NOLIMIT by policy - SMFLIM00 0001
+ IEF236I ALLOC. FOR $B2RMS4X P0 PDUD
+ IGD103I SMS ALLOCATED TO DDNAME STEPLIB
+ IGD103I SMS ALLOCATED TO DDNAME
+ IGD103I SMS ALLOCATED TO DDNAME SYSEXEC
+ IEF237I JES2 ALLOCATED TO PARMDD
+ IGD103I SMS ALLOCATED TO DDNAME ELENCO
+ IEF237I DMY  ALLOCATED TO FILEIN
+ IEF237I JES2 ALLOCATED TO SYSTSPRT
+ IEF237I JES2 ALLOCATED TO MAILJOB
+ IEF237I DMY  ALLOCATED TO SYSTSIN
+ IEF237I JES2 ALLOCATED TO SYSPRINT
+ IEF237I DMY  ALLOCATED TO SYSIN
+ IEF472I $B2RMS4X P0 PDUD - COMPLETION CODE - SYSTEM=000 USER=0333 REASON=00000000
+ IGD104I LCP0Y.TBAN0000.LOADBATC                      RETAINED,  DDNAME=STEPLIB
+ IGD104I YC00DB2.PE000.DSNLOAD                        RETAINED,  DDNAME=
+ IGD104I LCP00.SYSTEM.INPUT                           RETAINED,  DDNAME=SYSEXEC
+ IEF285I   GAY6DB2.$B2RMS4X.J0019404.D0000102.?         SYSIN
+ IGD104I LCP00.SYSTEM.INPUT                           RETAINED,  DDNAME=ELENCO
+ IEF285I   GAY6DB2.$B2RMS4X.J0019404.D0000113.?         SYSOUT
+ IEF285I   GAY6DB2.$B2RMS4X.J0019404.D0000114.?         SYSOUT
+ IEF285I   GAY6DB2.$B2RMS4X.J0019404.D0000115.?         SYSOUT
+ *** STEP STATISTICS ***********************************************************
+ * USERID: (GAY6DB2 )  STEP#(   2)  PGM(Y200650 )  ENDED - RETURN CODE (U0333) *
+ *-----------------------------------------------------------------------------*
+ * JOBNAME:       $B2RMS4X * STEPNAME:      PDUD     * PROCNAME:     P0        *
+ * START TIME:    22:49:33 * ENDED TIME:    22:49:33 * KEY USED:          (08) *
+ * ELAPSED TIME:       .20 * CPU TIME(TCB):      .01 * CPU TIME(SRB):      .00 *
+ * SUNITS: CPU=       1,058 SRB=           5 I/O=           0 MSO=           0 *
+ * VIRTUAL STORAGE:   REGION REQUESTED= ÄÄ10216K, PVT AREA=( 10,216K/  1,502M) *
+ * VIRTUAL USED:   MAX. FOR USER=(     36K/      0M) - SYS=(    292K/ 10,452K) *
+ * SWAPPING:  NUMBER=     0 AVG. PAGES/SWAPIN=     0 AVG. PAGES/SWAPOUT=     0 *
+ * PVT PAGING(I/O):    0 /    0  VIO(I/O/R):     0 /    0 /    0  STOLEN:    0 *
+ *-----------------------------------------------------------------------------*
+ * STEPLIB  2C3D        28 * STEPLIB  2623        22 * SYSEXEC  3011        14 *
+ * PARMDD   0000         0 * ELENCO   3011         0 * FILEIN   0000         0 *
+ * SYSTSPRT 0000         0 * MAILJOB  0000         0 * SYSTSIN  0000         0 *
+ * SYSPRINT 0000         0 * SYSIN    0000         0 *                         *
+ *******************************************************************************
+ IEF373I STEP/P0      /START 2026186.2249
+ IEF032I STEP/P0      /STOP  2026186.2249
+         CPU:     0 HR  00 MIN  00.01 SEC    SRB:     0 HR  00 MIN  00.00 SEC
+         VIRT:    36K  SYS:   292K  EXT:      564K  SYS:    10452K
+         ATB- REAL:                   284K  SLOTS:                     0K
+              VIRT- ALLOC:      24M SHRD:       0M
+ *** JOB  STATISTICS ***********************************************************
+ * JOB $B2RMS4X(J0019404)   ENDED:  STEPS(   2) JCLASS(Y) PGN(   0) PRTY(   0) *
+ *-----------------------------------------------------------------------------*
+ * START TIME:    22:49:31 * ENDED TIME:    22:49:33 * DATE OF DAY:   07/0526 *
+ * ELAPSED TIME:      2.43 * CPU TIME(TCB):      .03 * CPU TIME(SRB):      .00 *
+ * SUNITS: CPU=       2,920 SRB=          34 I/O=           0 MSO=           0 *
+ *  SYSTEM ID: AMVS  -  MVS PRODUCT LEVEL: SP7.3.1   -  SUBSYS: JES2 SP2.5.0   *
+ *******************************************************************************
+ IEF375I  JOB/$B2RMS4X/START 2026186.2249
+ IEF033I  JOB/$B2RMS4X/STOP  2026186.2249
+         CPU:     0 HR  00 MIN  00.03 SEC    SRB:     0 HR  00 MIN  00.00 SEC
+
+1                                         **** B M C   E X E C U T I O N   F O R   D B 2 ****
+                                                    **** V E R S I O N:  V13.01.00 
+                                                 (C) COPYRIGHT 1991 - 2024 BMC SOFTWARE, INC.
+
+ 2026-07-05 22.49.32 ON SYSID AMVS                      WORKLIST EXECUTION LOG                                               PAGE   1
+0------------------------------------------------------------------------------------------------------------------------------------
+                                            LINE PREFIX : DENOTES WORKLIST INPUT STATEMENTS
+ ------------------------------------------------------------------------------------------------------------------------------------
+0BMC706707I  PTFS: BQU3872 BQU3903 BQU4266 BQU4314 BQU4732 BQU4859 BQU4927 BQU5074 BQU5185 BQU5248
+ BMC706707I  PTFS: BQU5411 BQU5536 BQU5561
+
+ BMC16815I  PARAMETERS:   ACM
+ BMC16815I  PARAMETERS:   SSID DB2R WORKID UDBR000Y.DB2RDBR0000
+ BMC16815I  PARAMETERS:   DYNWORKUNIT SYSALLDA
+ BMC16815I  PARAMETERS:   STOPWAIT 3
+ BMC16815I  PARAMETERS:   STOPWTSECS 10
+ BMC16815I  PARAMETERS:   2MEGSQL
+ BMC16943I  USING 'DB2ROPD1' FOR RUN OPTIONS
+ BMC16898I  DEBUG: CONNECTED WITH USER: GAY6DB2
+ BMC16979I  WORKLIST DSNAME IS 'XC00DB2.TW000.UDBR000Y.DBR000.DB2R.WKL'
+ BMC706708I DB2 RELEASE: 1315 MODE: NOT NEW FUNCTION
+ BMC70925I  CURRENT FUNCTION LEVEL  V13R1M100  CATALOG LEVEL           V13R1M100
+ BMC70926I  HIGHEST ACTIVATED LEVEL V13R1M100  PREVIOUS FUNCTION LEVEL V12R1M510
+ BMC16806I  PARAMETERS ACCEPTED, BEGINNING EXECUTION VERSION V13.01.00 SPE2410 10/07/2024 FOR BMC AMI Change Manager for Db2
+ BMC16971I  AUTHID SWITCHING OPTION 'N' IS IN EFFECT. -AUTH NOT ALLOWED.
+ BMC16957I  EXECUTION AUTHID IS GAY6DB2
+
+ BMC16898I  DEBUG: BUFFER SIZE IS   2097152
+0:***********************************************************************
+ BMC70933I  WORKID DESCRIPTION: Import CDL
+ BMC16999I  INITIAL WORKID STATUS FOR UDBR000Y.DB2RDBR0000 IS 'N' (NOT STARTED)
+ BMC16999I  UPDATED WORKID STATUS FOR UDBR000Y.DB2RDBR0000 IS 'S' (STARTED)
+0:***********************************************************************
+0:*** BMC AMI Change Manager for Db2 VERSION 13.01.00 (05/31/2022)
+0:*** CURRENT SPE LEVEL SPE2410 (BQU5544)
+0:***********************************************************************
+0:*** BMC AMI Change Manager for Db2 13.01.00 SPE2410 PTFs applied:
+0:*** BQU3344  BQU3861  BQU3993  BQU3990  BQU3839  BQU4244  BQU4257
+0:*** BQU4259  BQU4130  BQU4276  BQU4416  BQU4261  BQU4292  BQU4635
+0:*** BQU4697  BQU4829  BQU4828  BQU4849  BQU4868  BQU4856  BQU4911
+0:*** BQU4957  BQU4922  BQU4925  BQU5158  BQU5245  BQU5186  BQU5251
+0:*** BQU5076  BQU5407  BQU5428  BQU5439  BQU5442  BQU5473  BQU5533
+0:*** BQU5544
+0:*** EXECUTION (AEX) 13.01.00 SPE2410 PTFs applied:
+1                                         **** B M C   E X E C U T I O N   F O R   D B 2 ****
+                                                    **** V E R S I O N:  V13.01.00 
+                                                 (C) COPYRIGHT 1991 - 2024 BMC SOFTWARE, INC.
+
+ 2026-07-05 22.49.33 ON SYSID AMVS                      WORKLIST EXECUTION LOG                                               PAGE   2
+0------------------------------------------------------------------------------------------------------------------------------------
+                                            LINE PREFIX : DENOTES WORKLIST INPUT STATEMENTS
+ ------------------------------------------------------------------------------------------------------------------------------------
+0:*** BQU3872  BQU3903  BQU4266  BQU4314  BQU4732  BQU4859  BQU4927
+0:*** BQU5185  BQU5248  BQU5074  BQU5411  BQU5536  BQU5561
+0:***********************************************************************
+0:* ALUIN PARMS:                                                        *
+0:*   SSID DB2R                                                         *
+0:*   WORKID UDBR000Y.DB2RDBR0000                                       *
+0:*   INCLUDE (DATA SQL AMS REBIND )                                    *
+0:*   SORTDEVT SYSALLDA                                                 *
+0:*   SMSINCLUDE (  )                                                   *
+0:*   IBMREBUILD                                                        *
+0:*   STANDALONESTATS DB2STATSUPD TABLEALL                              *
+0:*   NOHISTORY                                                         *
+0:*   IBMCOPY                                                           *
+0:*   IBMLOAD   NOUTILCOPY                                              *
+0:*   DYNUNLD                                                           *
+0:*   DYNCOPY                                                           *
+0:*   NOPARTCOPY                                                        *
+0:*   COPYDDN (COPY01   )                                               *
+0:*   NOREGENIDENTITY                                                   *
+0:*   VVALWARN                                                          *
+0:*   VVALPROP                                                          *
+0:*   IBMUNLOAD NOUNLDCOLL                                              *
+0:*   IBMREORG IBMCHECK                                                 *
+0:*   SYNCPOINT 10                                                      *
+0:*   NODBRMLIB                                                         *
+1                                         **** B M C   E X E C U T I O N   F O R   D B 2 ****
+                                                    **** V E R S I O N:  V13.01.00 
+                                                 (C) COPYRIGHT 1991 - 2024 BMC SOFTWARE, INC.
+
+ 2026-07-05 22.49.33 ON SYSID AMVS                      WORKLIST EXECUTION LOG                                               PAGE   3
+0------------------------------------------------------------------------------------------------------------------------------------
+                                            LINE PREFIX : DENOTES WORKLIST INPUT STATEMENTS
+ ------------------------------------------------------------------------------------------------------------------------------------
+0:*   ORDERBY                                                           *
+0:*   UNLOADTABLE                                                       *
+0:*   UNLOADEMPTY                                                       *
+0:*   NOSTOPCOMMIT                                                      *
+0:*   TABLEACCESS                                                       *
+0:*   NOPARALLEL                                                        *
+0:*   KEYCARD                                                           *
+0:*   REORGALL                                                          *
+0:*                                                                     *
+0:*   REORGONLINE                                                       *
+0:*   DYNREORG                                                          *
+0:*   NOROLEOWN                                                         *
+0:*   NOCLONEDATA                                                       *
+0:*   SPANNEDRECS                                                       *
+0:*   DEFERUNIQUEIX                                                     *
+0:*   BINDONIX                                                          *
+0:*                                                                     *
+0:*                                                                     *
+0:*                                                                     *
+0:***********************************************************************
+0:-TIME 000050 '2026-07-05-22.49.24.939019'                               09413934
+0:-SSID 000100 DB2R                                                       61604969
+0:-WKID 000150 UDBR000Y.DB2RDBR0000                                       85554229
+0:***********************************************************************
+0:***  THE FOLLOWING MESSAGES ARE INFORMATIONAL AND WARNINGS ONLY     ***
+1                                         **** B M C   E X E C U T I O N   F O R   D B 2 ****
+                                                    **** V E R S I O N:  V13.01.00 
+                                                 (C) COPYRIGHT 1991 - 2024 BMC SOFTWARE, INC.
+
+ 2026-07-05 22.49.33 ON SYSID AMVS                      WORKLIST EXECUTION LOG                                               PAGE   4
+0------------------------------------------------------------------------------------------------------------------------------------
+                                            LINE PREFIX : DENOTES WORKLIST INPUT STATEMENTS
+ ------------------------------------------------------------------------------------------------------------------------------------
+0:***********************************************************************
+0:*BMC56464I DB2 CURRENT FUNCTION LEVEL IS V13R1M100
+0:*BMC56464I DB2 CATALOG LEVEL IS V13R1M100
+0:*BMC56464I APPLCOMPAT IS V13R1M100
+0:*BMC56464I ZPARM VALUES ARE FROM SYSPROC.ADMIN_INFO_SYSPARM
+0:*BMC396207I DISCARDS SET TO A VALUE OTHER THAN 1.
+0:*           EXECUTION SHOULD BE CHECKED CAREFULLY FOR DISCARDS.
+0:*BMC396472W CREATE FOR TABLESPACE USING NON UNIVERSAL TABLESPACE SYNTAX
+0:*           ON FUNCTION LEVEL V12R1M504 OR GREATER MAY RESULT IN:
+0:*            PARTITION BY GROWTH UNIVERSAL TABLESPACE MAXPARTITIONS 256
+0:*            PARTITION BY RANGE UNIVERSAL TABLESPACE SEGSIZE <DEFAULT>
+0:*BMC45460W TAPE STACKING DISABLED FOR IBM COPY AND DYNAMIC ALLOCATION
+0:*BMC396431W PROCESSING DFSMS-ENCRYPTED OBJECTS OR OBJECTS THAT WILL BE
+0:*           ENCRYPTED AS A RESULT OF PROCESSING MIGHT REQUIRE THE
+0:*           KEYLABEL OR DATACLAS PARAMETER IN -AMS WORKLIST COMMANDS.
+0:-SYNC 000200 START OF EXECUTION SYNCPOINT                               52834154
+0:***********************************************************************
+0:-SETS 000250 SET CURRENT SQLID = 'STARTASK'                             05167661
+  DSNT400I SQLCODE = 000,  SUCCESSFUL EXECUTION
+0:-SQL  000300 CREATE  TABLESPACE TSBOR000 IN DBR000
+ :                    MAXPARTITIONS 5
+ :                    USING STOGROUP STGY2V00
+ :                    PRIQTY     -1
+ :                    SECQTY     -1
+ :                    FREEPAGE   20
+ :                    PCTFREE    10   FOR UPDATE 0
+ :                    CCSID EBCDIC
+ :                    BUFFERPOOL BP1
+ :                    SEGSIZE    64
+ :                    DSSIZE       16G
+ :                                                                        56434942
+1                                         **** B M C   E X E C U T I O N   F O R   D B 2 ****
+                                                    **** V E R S I O N:  V13.01.00 
+                                                 (C) COPYRIGHT 1991 - 2024 BMC SOFTWARE, INC.
+
+ 2026-07-05 22.49.33 ON SYSID AMVS                      WORKLIST EXECUTION LOG                                               PAGE   5
+0------------------------------------------------------------------------------------------------------------------------------------
+                                            LINE PREFIX : DENOTES WORKLIST INPUT STATEMENTS
+ ------------------------------------------------------------------------------------------------------------------------------------
+ BMC70921I  SQL EXECUTE IMMEDIATE ERROR SQLCA RETURN CODE: -551
+  DSNT408I SQLCODE = -551, ERROR:  STARTASK DOES NOT HAVE THE PRIVILEGE TO PERFORM OPERATION CREATE TABLESPACE ON OBJECT DBR000
+  DSNT418I SQLSTATE   = 42501 SQLSTATE RETURN CODE
+  DSNT415I SQLERRP    = DSNXODD2 SQL PROCEDURE DETECTING ERROR
+  DSNT416I SQLERRD    = 50  0  0  -1  0  0 SQL DIAGNOSTIC INFORMATION
+  DSNT416I SQLERRD    = X'00000032'  X'00000000'  X'00000000'  X'FFFFFFFF'  X'00000000'  X'00000000' SQL DIAGNOSTIC INFORMATION
+ BMC16828I  WORK ROLLED BACK TO PRIOR SYNC POINT
+ BMC16843E  SQL ERROR DURING EXECUTE IMMEDIATE
+ BMC16900W  NEXT RESTART WILL BEGIN AFTER SEQUENCE NUMBER 000250 UDBR000Y.DB2RDBR0000
+0BMC16832I  EXECUTION TERMINATED DUE TO ABOVE ERROR(S)
+0BMC16833I  END OF WORKLIST EXECUTION
+Y6dud Version ===> V01.04 del 19.04.2021
+Y6dud ==> $B2RMS4X
+Y6dud ==> step= ultimo=N rtc=04 mail=NO
+Y6dud ==> Dataora=2026-07-05-22.49.31 8217143 40
+
+ Num StepName RetCod Abend
+>  1 STEP1    08     SI
+
+ ATTENZIONE >>> PASSO NON VALIDO <<< VEDI MESSAGGI SU SYSPRINT
